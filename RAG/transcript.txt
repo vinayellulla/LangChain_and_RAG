@@ -1,0 +1,35 @@
+# Introduction to Retrieval-Augmented Generation (RAG)
+
+Hello everyone. In this video, we are going to learn about Retrieval-Augmented Generation, commonly known as RAG.
+
+RAG is a technique that combines information retrieval with large language models. It helps language models answer questions using external knowledge sources instead of relying only on the information learned during training.
+
+Let's understand why RAG is useful. Large language models can generate human-like responses, but they may sometimes produce incorrect information or hallucinate. They may also lack access to private documents, company data, or recently updated information.
+
+RAG helps address these limitations by retrieving relevant information from an external knowledge base before generating an answer.
+
+A typical RAG pipeline has several important steps.
+
+The first step is document loading. We collect information from sources such as PDF files, text files, websites, or YouTube transcripts.
+
+The second step is text splitting. Large documents are divided into smaller pieces called chunks. Chunking makes it easier to retrieve specific information and helps the language model work with relevant context.
+
+The third step is embedding generation. An embedding model converts each text chunk into a numerical vector. These vectors represent semantic information about the text, allowing us to compare the meanings of different pieces of text.
+
+The fourth step is vector storage. We store the document chunks and their embeddings in a vector database. Popular vector stores include Chroma, FAISS, and Pinecone.
+
+The fifth step is retrieval. When a user asks a question, the system converts the question into an embedding and searches for document chunks that are semantically similar to the question.
+
+The sixth step is generation. The retrieved chunks are provided as context to a large language model. The model uses the question and the retrieved context to generate an answer.
+
+For example, imagine a company has hundreds of internal documents describing its leave policy. An employee asks, "How many days of annual leave can I take?"
+
+Instead of asking the language model to answer from its general training data, the RAG system searches the company's documents, retrieves the relevant leave policy, and provides that information to the model. The model then generates an answer based on the retrieved information.
+
+RAG has several advantages. It can make answers more relevant to a specific knowledge base, provide access to private or updated information, and support source-based answers when document references are included.
+
+However, RAG also has limitations. If the documents do not contain the answer, the retrieval process selects irrelevant chunks, or the retrieved context is incomplete, the final answer may still be incorrect. Therefore, document quality, chunk size, embedding quality, retrieval accuracy, and evaluation are important parts of a good RAG system.
+
+In summary, Retrieval-Augmented Generation connects a knowledge base to a language model. The system loads documents, splits them into chunks, creates embeddings, stores them in a vector database, retrieves relevant context for a question, and uses that context to generate an answer.
+
+Understanding these steps is an important foundation for building practical AI applications such as document question-answering systems, customer support assistants, and internal knowledge assistants.
